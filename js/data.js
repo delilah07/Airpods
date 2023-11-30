@@ -1,0 +1,42 @@
+export const airpods = [
+  {
+    name: 'black',
+    mainImg: './images/header-black.webp',
+    selectImg: './images/choose-black.webp',
+    designImg: './images/design-black.webp',
+    caseImg: './images/airpods-black.webp',
+    gradient: '#B6B6B6 0%, rgba(235, 235, 235, 0.00) 100%',
+  },
+  {
+    name: 'blue',
+    mainImg: './images/header-blue.webp',
+    selectImg: './images/choose-blue.webp',
+    designImg: './images/design-blue.webp',
+    caseImg: './images/airpods-blue.webp',
+    gradient: '#CADBEB 0%, rgba(235, 235, 235, 0.00) 100%',
+  },
+  {
+    name: 'green',
+    mainImg: './images/header-green.webp',
+    selectImg: './images/choose-green.webp',
+    designImg: './images/design-green.webp',
+    caseImg: './images/airpods-green.webp',
+    gradient: ' #DDEAD9 0%, rgba(235, 235, 235, 0.00) 100%',
+  },
+  {
+    name: 'red',
+    mainImg: './images/header-red.webp',
+    selectImg: './images/choose-red.webp',
+    designImg: './images/design-red.webp',
+    caseImg: './images/airpods-red.webp',
+    gradient: '#F3D6D1 0%, rgba(235, 235, 235, 0.00) 100%',
+  },
+  {
+    name: 'white',
+    mainImg: './images/header-white.webp',
+    selectImg: './images/choose-white.webp',
+    designImg: './images/design-white.webp',
+    caseImg: './images/airpods-white.webp',
+    gradient: '#FAFAFA 0%, rgba(235, 235, 235, 0.00) 100%',
+  },
+];
