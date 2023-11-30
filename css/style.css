@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap');
-
 :root {
   --first-color: #fff;
   --second-color: #000;
@@ -328,6 +326,8 @@ article:last-child .case__text span {
 .nav__list {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 footer .nav__link {
@@ -354,37 +354,10 @@ footer .nav__link {
   /* .design__title span {
     position: absolute;
   }
-  .design__title span:nth-child(1) {
-    top: 29.2%;
-    left: 0;
-    z-index: 3;
-  }
-  .design__title span:nth-child(2) {
-    top: 29.2%;
-    left: 25.5%;
-    z-index: 1;
-  }
-  .design__title span:nth-child(3) {
-    top: 34.7%;
-    right: 29.6%;
-    z-index: 3;
-  }
-  .design__title span:nth-child(4) {
-    bottom: 14.3%;
-    right: 19.25%;
-    z-index: 3;
-  }
-  .design__title span:nth-child(5) {
-    bottom: 0;
-    right: 0.05rem;
-    z-index: 1;
-  }
-  section:not(:first-child):not(:last-child) {
-    margin: 9rem 0;
-  } */
+ */
 }
 @media only screen and (max-width: 780px) {
-  .nav__list {
+  :where(header) .nav__list {
     gap: 0.5rem;
   }
   .design {
@@ -429,8 +402,11 @@ footer .nav__link {
   .nav__item:has(button) {
     display: none;
   }
-  .nav__list {
+  :where(header) .nav__list {
     gap: 0.1rem;
+  }
+  .design__wrapper {
+    margin-top: 1rem;
   }
   .choose__link {
     padding: 1.4rem 1.7rem 1.35rem;
@@ -446,5 +422,44 @@ footer .nav__link {
   }
   .picture__content p {
     display: none;
+  }
+
+  .case {
+    padding: 2.1rem 0 2.9rem;
+  }
+  .case__number,
+  article:last-child .case__text {
+    margin-top: 0rem;
+  }
+
+  .design__title span:nth-child(1) {
+    top: 32.2%;
+  }
+  .design__title span:nth-child(2) {
+    top: 32.2%;
+  }
+  .design__title span:nth-child(3) {
+    top: 37.7%;
+  }
+  .design__title span:nth-child(4) {
+    bottom: 16.3%;
+    right: 16.75%;
+    z-index: 3;
+  }
+  .design__title span:nth-child(5) {
+    bottom: 0;
+    right: 0.05rem;
+    z-index: 1;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .composition__wrapper {
+    grid-template-columns: 1fr;
+  }
+  .composition__picture {
+    order: -1;
+  }
+  .composition__content p {
+    text-align: center;
   }
 }
