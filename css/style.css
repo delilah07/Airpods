@@ -8,7 +8,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  border: 1px solid #000;
 }
 
 html {
@@ -45,10 +44,10 @@ body {
 }
 
 .container {
-  max-width: 1220px;
+  max-width: 1240px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 0.5rem;
+  padding: 0 1rem;
 }
 
 .header {
@@ -187,13 +186,16 @@ section:not(:first-child):not(:last-child) {
   cursor: pointer;
   border-radius: 1rem;
   border: 1px solid #777;
-  padding: 2.4rem 2.7rem 2.35rem;
+
   transition: all 0.5s ease-in-out;
+}
+.choose__link {
+  padding: 2.4rem 2.7rem 2.35rem;
 }
 .choose__item * {
   cursor: pointer;
 }
-.choose__item:hover {
+.choose__link:hover {
   padding: 1.55rem 1.85rem 1.15rem;
 }
 
@@ -226,7 +228,7 @@ section:not(:first-child):not(:last-child) {
 }
 .case__picture {
   display: block;
-  max-width: 20rem;
+  width: clamp(200px, 75%, 20rem);
   margin: 2rem auto 0;
 }
 article + article {
@@ -251,24 +253,56 @@ article:last-child .case__text span {
 
 .footer {
   background-color: #000;
-  position: relative;
+
   color: #fff;
   overflow: hidden;
 }
-
+.footer__picture {
+  position: relative;
+}
 .picture__sound {
   position: absolute;
   left: 0;
   right: 0;
-  top: 8%;
+  top: 23.5%;
   pointer-events: none;
 }
-.footer__bottom {
-  height: 25rem;
+.footer__bottom-wrapper {
+  padding-top: 12.5%;
   display: flex;
   align-items: center;
   justify-content: end;
   flex-direction: column;
+}
+.picture__content {
+  position: absolute;
+  max-width: 14.8rem;
+  line-height: 130%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  bottom: 15.5%;
+  margin: 0 auto;
+}
+.picture__content p + p {
+  margin-top: 1rem;
+}
+.picture__btn {
+  padding: 0.75rem 2.9rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1.5rem;
+  background: #fff;
+  margin-top: 1.5rem;
+  font-weight: 700;
+  border: 1px solid #fff;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #000;
+    color: #fff;
+  }
 }
 .footer__text {
   text-align: center;
@@ -288,6 +322,8 @@ article:last-child .case__text span {
   gap: 1rem;
   align-items: center;
   font-weight: 700;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .nav__list {
   display: flex;
@@ -297,4 +333,118 @@ article:last-child .case__text span {
 footer .nav__link {
   padding: 0;
   border: none;
+}
+
+@media only screen and (max-width: 1240px) {
+  .design__image {
+    width: 64.5vw;
+  }
+  .design__title {
+    font-size: 17vw;
+  }
+  .picture__content {
+    max-width: 75%;
+  }
+  .picture__content p + p {
+    margin-top: 0.5rem;
+  }
+  .picture__btn {
+    margin-top: 1rem;
+  }
+  /* .design__title span {
+    position: absolute;
+  }
+  .design__title span:nth-child(1) {
+    top: 29.2%;
+    left: 0;
+    z-index: 3;
+  }
+  .design__title span:nth-child(2) {
+    top: 29.2%;
+    left: 25.5%;
+    z-index: 1;
+  }
+  .design__title span:nth-child(3) {
+    top: 34.7%;
+    right: 29.6%;
+    z-index: 3;
+  }
+  .design__title span:nth-child(4) {
+    bottom: 14.3%;
+    right: 19.25%;
+    z-index: 3;
+  }
+  .design__title span:nth-child(5) {
+    bottom: 0;
+    right: 0.05rem;
+    z-index: 1;
+  }
+  section:not(:first-child):not(:last-child) {
+    margin: 9rem 0;
+  } */
+}
+@media only screen and (max-width: 780px) {
+  .nav__list {
+    gap: 0.5rem;
+  }
+  .design {
+    margin: 0 0 4rem;
+  }
+  section:not(:first-child):not(:last-child) {
+    margin: 4rem 0;
+  }
+  .design__content {
+    padding: 4.15rem 0 1.2rem;
+  }
+  .design__wrapper {
+    margin-top: 4rem;
+  }
+  .choose__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .composition__wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  .composition__content p + p {
+    margin-top: 1rem;
+  }
+  .picture__content {
+    max-width: 100%;
+    bottom: 7%;
+    font-size: 0.8rem;
+  }
+  article + article {
+    margin-top: 3rem;
+  }
+  .section__title {
+    font-size: 2rem;
+  }
+  .case__number {
+    font-size: 5rem;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .nav__item:has(button) {
+    display: none;
+  }
+  .nav__list {
+    gap: 0.1rem;
+  }
+  .choose__link {
+    padding: 1.4rem 1.7rem 1.35rem;
+  }
+  .choose__list {
+    gap: 1rem;
+  }
+  .design__choose {
+    margin: 1rem 1rem 0;
+  }
+  .picture__content {
+    bottom: 20%;
+  }
+  .picture__content p {
+    display: none;
+  }
 }
