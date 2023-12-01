@@ -2,7 +2,6 @@ import { selectCardHTML } from './createHTML.js';
 
 export const changeTheme = (theme, arr) => {
   const themeObj = arr.find((obj) => obj.name === theme);
-  console.log(themeObj);
   document.querySelector('.design__image img').src = `${themeObj.mainImg}`;
   document.querySelector(
     '.design__picture'

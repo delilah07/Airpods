@@ -190,6 +190,9 @@ section:not(:first-child):not(:last-child) {
 .choose__link {
   padding: 2.4rem 2.7rem 2.35rem;
 }
+.choose__link img {
+  pointer-events: none;
+}
 .choose__item * {
   cursor: pointer;
 }
