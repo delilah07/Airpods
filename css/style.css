@@ -75,6 +75,10 @@ body {
   transition: all 0.5s ease-in-out;
   height: 100%;
   border-bottom: 1px solid transparent;
+  overflow: hidden;
+}
+.nav__item:last-child {
+  opacity: 0;
 }
 .nav__item:not(:last-child):hover {
   border-color: var(--second-color);
