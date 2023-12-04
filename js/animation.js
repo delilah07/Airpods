@@ -116,117 +116,138 @@ export const loadAnim = () => {
     );
 };
 export const scrollAnim = () => {
-  gsap.to('.design__image', {
-    scrollTrigger: {
-      trigger: 'body',
-      start: `${document.querySelector('.design').offsetHeight / 6} top `,
-      end: 'center bottom',
-      scrub: true,
-    },
-    keyframes: [
-      { rotate: 0, scale: 0.8, y: 400, x: 300, zIndex: -1, filter: 'blur(0)' },
-      { rotate: 30, y: 700, x: 500, filter: 'blur(10px)' },
-      {
-        y: 1100,
-        x: 600,
-      },
-      { rotate: -30, scale: 0.8, y: 1600, x: -600 },
-      { y: 2500 },
-    ],
-  });
-  document.querySelectorAll('.section__title').forEach((el) =>
-    gsap.from(el, {
-      scrollTrigger: {
-        trigger: el,
-        start: '+=100 bottom',
-        markers: true,
-      },
-      y: 20,
-      opacity: 0,
-      //   delay: 0.5,
-    })
-  );
-  document.querySelectorAll('.section__text').forEach((el) =>
-    gsap.from(el, {
-      scrollTrigger: {
-        trigger: el,
-        start: '+=100 bottom',
-      },
-      y: 20,
-      opacity: 0,
-      //   delay: 0.5,
-    })
-  );
-  document.querySelectorAll('.choose__item').forEach((el, i) =>
-    gsap.from(el, {
-      scrollTrigger: {
-        trigger: el,
-        start: '+=100 bottom',
-      },
-      opacity: 0,
-      delay: i * 0.4,
-    })
-  );
-  document.querySelectorAll('.composition__content p').forEach((el, i) =>
-    gsap.from(el, {
-      scrollTrigger: {
-        trigger: el,
-        start: '+=100 bottom',
-      },
-      opacity: 0,
-      x: -200,
-      delay: i * 0.4,
-    })
-  );
+  let mm = gsap.matchMedia(),
+    breakPoint = 800;
 
-  gsap.from('.composition__picture', {
-    scrollTrigger: {
-      trigger: '.composition__picture',
-      start: '+=100 bottom',
+  mm.add(
+    {
+      // set up any number of arbitrarily-named conditions. The function below will be called when ANY of them match.
+      isDesktop: `(min-width: ${breakPoint}px)`,
+      isMobile: `(max-width: ${breakPoint - 1}px)`,
     },
-    opacity: 0,
-    x: 200,
-  });
-  gsap.from('.case__picture', {
-    scrollTrigger: {
-      trigger: '.case__picture',
-      start: '+=100 bottom',
-    },
-    scale: 0,
-  });
+    (context) => {
+      // context.conditions has a boolean property for each condition defined above indicating if it's matched or not.
+      let { isDesktop, isMobile, reduceMotion } = context.conditions;
 
-  gsap.from('.case__number', {
-    scrollTrigger: {
-      trigger: '.case__number',
-      start: '+=100 bottom',
-    },
-    opacity: 0,
-    textContent: 0,
-    duration: 1,
-    ease: Power1.easeIn,
-    snap: { textContent: 1 },
-    stagger: 1,
-  });
-  document.querySelectorAll('.picture__content p').forEach((el) =>
-    gsap.from(el, {
-      scrollTrigger: {
-        trigger: el,
-        start: '+=100 bottom',
-      },
-      y: 20,
-      opacity: 0,
-    })
+      gsap.to('.design__image', {
+        scrollTrigger: {
+          trigger: 'body',
+          start: isDesktop
+            ? `${document.querySelector('.design').offsetHeight / 6} top `
+            : 'top top',
+          end: 'center bottom',
+          scrub: true,
+        },
+        keyframes: [
+          {
+            rotate: 0,
+            scale: 0.8,
+            y: 400,
+            x: 300,
+            zIndex: -1,
+            filter: 'blur(0)',
+          },
+          { rotate: 30, y: 700, x: 500, filter: 'blur(10px)' },
+          {
+            y: 1100,
+            x: 600,
+          },
+          { rotate: -30, scale: 0.8, y: 1600, x: -600 },
+          { y: 2500 },
+        ],
+      });
+      document.querySelectorAll('.section__title').forEach((el) =>
+        gsap.from(el, {
+          scrollTrigger: {
+            trigger: el,
+            start: isDesktop ? '+=100 bottom' : '-=100 bottom',
+          },
+          y: 20,
+          opacity: 0,
+        })
+      );
+      document.querySelectorAll('.section__text').forEach((el) =>
+        gsap.from(el, {
+          scrollTrigger: {
+            trigger: el,
+            start: isDesktop ? '+=100 bottom' : '-=100 bottom',
+          },
+          y: 20,
+          opacity: 0,
+        })
+      );
+      document.querySelectorAll('.choose__item').forEach((el, i) =>
+        gsap.from(el, {
+          scrollTrigger: {
+            trigger: el,
+            start: isDesktop ? '+=100 bottom' : '-=100 bottom',
+          },
+          opacity: 0,
+          delay: i * 0.4,
+        })
+      );
+      document.querySelectorAll('.composition__content p').forEach((el, i) =>
+        gsap.from(el, {
+          scrollTrigger: {
+            trigger: el,
+            start: isDesktop ? '+=100 bottom' : '-=100 bottom',
+          },
+          opacity: 0,
+          x: -200,
+          delay: i * 0.4,
+        })
+      );
+
+      gsap.from('.composition__picture', {
+        scrollTrigger: {
+          trigger: '.composition__picture',
+          start: isDesktop ? '+=100 bottom' : '-=100 bottom',
+        },
+        opacity: 0,
+        x: 200,
+      });
+      gsap.from('.case__picture', {
+        scrollTrigger: {
+          trigger: '.case__picture',
+          start: isDesktop ? '+=100 bottom' : '-=100 bottom',
+        },
+        scale: 0,
+      });
+
+      gsap.from('.case__number', {
+        scrollTrigger: {
+          trigger: '.case__number',
+          start: isDesktop ? '+=100 bottom' : '-=100 bottom',
+        },
+        opacity: 0,
+        textContent: 0,
+        duration: 1,
+        ease: Power1.easeIn,
+        snap: { textContent: 1 },
+        stagger: 1,
+      });
+      document.querySelectorAll('.picture__content p').forEach((el) =>
+        gsap.from(el, {
+          scrollTrigger: {
+            trigger: el,
+            start: isDesktop ? '+=100 bottom' : '-=100 bottom',
+          },
+          y: 20,
+          opacity: 0,
+        })
+      );
+
+      gsap.from('.picture__sound', {
+        scrollTrigger: {
+          trigger: '.picture__sound',
+          start: isDesktop ? '+=100 bottom' : '-=100 bottom',
+        },
+        keyframes: {
+          scaleY: [0, 1, 0.9, 1, 0.9, 1],
+        },
+        duration: 5,
+        transformOrigin: 'center bottom',
+      });
+    }
   );
-
-  gsap.from('.picture__sound', {
-    scrollTrigger: {
-      trigger: '.picture__sound',
-      start: '+=100 bottom',
-    },
-    keyframes: {
-      scaleY: [0, 1, 0.9, 1, 0.9, 1],
-    },
-    duration: 5,
-    transformOrigin: 'center bottom',
-  });
 };
