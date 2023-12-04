@@ -1,12 +1,13 @@
 export const loadAnim = () => {
   const tl = gsap.timeline({ default: { duration: 1 } });
-  tl.from(
-    '.header__logo',
-    {
-      scale: 0,
-    },
-    0.5
-  )
+  tl.to('body', { opacity: 1 })
+    .from(
+      '.header__logo',
+      {
+        scale: 0,
+      },
+      0.5
+    )
     .from('.header .nav__link', {
       x: 200,
     })
@@ -132,11 +133,10 @@ export const scrollAnim = () => {
       gsap.to('.design__image', {
         scrollTrigger: {
           trigger: 'body',
-          start: isDesktop
-            ? `${document.querySelector('.design').offsetHeight / 6} top `
-            : `0 top `,
-          end: 'center bottom',
+          start: isDesktop ? `0 top ` : `0 top `,
+          end: isDesktop ? 'center bottom' : 'bottom bottom',
           scrub: true,
+          markers: true,
         },
         keyframes: isDesktop
           ? [
@@ -184,7 +184,6 @@ export const scrollAnim = () => {
                 ? `-=${window.innerHeight / 4} bottom`
                 : '+=10 bottom'
               : '+=100 bottom',
-            markers: true,
           },
           y: 20,
           opacity: 0,
@@ -208,9 +207,7 @@ export const scrollAnim = () => {
         gsap.from(el, {
           scrollTrigger: {
             trigger: el,
-            start: isDesktop
-              ? '+=100 bottom'
-              : `-=${window.innerHeight / 4} bottom`,
+            start: isDesktop ? '+=100 bottom' : `+=100 bottom`,
           },
           opacity: 0,
           delay: i * 0.4,
@@ -244,10 +241,10 @@ export const scrollAnim = () => {
         scrollTrigger: {
           trigger: '.case__picture',
           start: isDesktop
-            ? '+=100 bottom'
+            ? '+=200 bottom'
             : `-=${window.innerHeight / 4} bottom`,
         },
-        scale: 0,
+        opacity: 0,
       });
 
       gsap.from('.case__number', {
@@ -288,7 +285,7 @@ export const scrollAnim = () => {
           scaleY: [0, 1, 0.9, 1, 0.9, 1],
         },
         duration: 5,
-        transformOrigin: `-=${window.innerHeight / 4} bottom`,
+        transformOrigin: 'center bottom',
       });
     }
   );
