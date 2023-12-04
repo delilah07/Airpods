@@ -133,10 +133,10 @@ export const scrollAnim = () => {
       gsap.to('.design__image', {
         scrollTrigger: {
           trigger: 'body',
-          start: isDesktop ? `0 top ` : `0 top `,
-          end: isDesktop ? 'center bottom' : 'bottom bottom',
+          start: isDesktop ? `0 top ` : `0 top`,
+          end: isDesktop ? 'center bottom' : 'center bottom',
           scrub: true,
-          markers: true,
+          //   markers: true,
         },
         keyframes: isDesktop
           ? [
