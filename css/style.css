@@ -6,7 +6,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  border: 1px solid #000;
 }
 
 html {
@@ -115,15 +114,15 @@ body {
 }
 .design__picture {
   background: linear-gradient(180deg, #cadbeb 0%, rgba(235, 235, 235, 0) 100%);
-  min-height: 50vh;
+  height: 100vh;
   display: flex;
   align-items: center;
 }
-@media only screen and (min-width: 800px) {
+/* @media only screen and (min-width: 800px) {
   .design__picture {
     height: 100vh;
   }
-}
+} */
 .design__content {
   position: relative;
   /* padding: 8.15rem 0 1.2rem; */
@@ -387,9 +386,9 @@ footer .nav__link {
   section:not(:first-child):not(:last-child) {
     margin: 4rem 0;
   }
-  .design__content {
+  /* .design__content {
     padding: 4.15rem 0 1.2rem;
-  }
+  } */
   .design__wrapper {
     margin-top: 4rem;
   }
