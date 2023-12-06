@@ -239,7 +239,7 @@ export const scrollAnim = () => {
       gsap.from('.case__picture', {
         scrollTrigger: {
           trigger: '.case__picture',
-          start: isDesktop ? '+=200 bottom' : '-=100 bottom',
+          start: isDesktop ? '+=200 bottom' : '-=50 bottom',
         },
         opacity: 0,
       });
@@ -247,7 +247,7 @@ export const scrollAnim = () => {
       gsap.from('.case__number', {
         scrollTrigger: {
           trigger: '.case__number',
-          start: isDesktop ? '+=200 bottom' : '-=100 bottom',
+          start: isDesktop ? '+=200 bottom' : '-=50 bottom',
         },
         opacity: 0,
         textContent: 0,
@@ -260,7 +260,7 @@ export const scrollAnim = () => {
         gsap.from(el, {
           scrollTrigger: {
             trigger: el,
-            start: isDesktop ? '+=200 bottom' : '-=100 bottom',
+            start: isDesktop ? '+=200 bottom' : '-=50 bottom',
           },
           y: 20,
           opacity: 0,
